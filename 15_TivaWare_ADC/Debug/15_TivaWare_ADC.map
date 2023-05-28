@@ -1,0 +1,215 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Wed Apr  5 09:36:06 2023
+
+OUTPUT FILE NAME:   <15_TivaWare_ADC.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 000005c9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00000714  0003f8ec  R  X
+  SRAM                  20000000   00008000  00000204  00007dfc  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000714   00000714    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000494   00000494    r-x .text
+  00000700    00000700    00000014   00000014    r-- .cinit
+20000000    20000000    00000204   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    00000004   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000494     
+                  0000026c    0000016c     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  000003d8    000000b0     main.obj (.text)
+                  00000488    0000007a     driverlib.lib : adc.obj (.text:ADCSequenceStepConfigure)
+                  00000502    0000004e                   : adc.obj (.text:ADCSequenceConfigure)
+                  00000550    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00000594    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  000005c8    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  000005fc    0000002e     driverlib.lib : adc.obj (.text:ADCIntStatus)
+                  0000062a    0000002c                   : gpio.obj (.text:GPIODirModeSet)
+                  00000656    0000001e                   : adc.obj (.text:ADCSequenceDataGet)
+                  00000674    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00000690    0000001a     driverlib.lib : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  000006aa    00000018                   : adc.obj (.text:ADCProcessorTrigger)
+                  000006c2    00000016                   : gpio.obj (.text:GPIOPinTypeADC)
+                  000006d8    0000000e                   : adc.obj (.text:ADCSequenceEnable)
+                  000006e6    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  000006f2    00000006     driverlib.lib : gpio.obj (.text:GPIOPinWrite)
+                  000006f8    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  000006fc    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.cinit     0    00000700    00000014     
+                  00000700    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00000708    00000004     (__TI_handler_table)
+                  0000070c    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    00000004     UNINITIALIZED
+                  20000200    00000004     (.common:muestras)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       main.obj                       176    0         4      
+    +--+------------------------------+------+---------+---------+
+       Total:                         188    620       4      
+                                                              
+    ../driverlib.lib
+       gpio.obj                       462    0         0      
+       adc.obj                        314    0         0      
+       sysctl.obj                     52     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         828    0         0      
+                                                              
+    D:\Programas\TI\CCS1220\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       copy_zero_init.c.obj           28     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         156    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      20        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   1172   640       516    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 0000070c records: 1, size/record: 8, table size: 8
+	.bss: load addr=00000700, load size=00000008 bytes, run addr=20000200, run size=00000004 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000708 records: 1, size/record: 4, table size: 4
+	index: 0, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+000005fd  ADCIntStatus                  
+000006ab  ADCProcessorTrigger           
+00000503  ADCSequenceConfigure          
+00000657  ADCSequenceDataGet            
+000006d9  ADCSequenceEnable             
+00000489  ADCSequenceStepConfigure      
+000006fd  C$$EXIT                       
+0000062b  GPIODirModeSet                
+0000026d  GPIOPadConfigSet              
+000006c3  GPIOPinTypeADC                
+00000691  GPIOPinTypeGPIOOutput         
+000006f3  GPIOPinWrite                  
+000006e7  ResetISR                      
+00000595  SysCtlPeripheralEnable        
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+0000070c  __TI_CINIT_Base               
+00000714  __TI_CINIT_Limit              
+00000708  __TI_Handler_Table_Base       
+0000070c  __TI_Handler_Table_Limit      
+00000551  __TI_auto_init_nobinit_nopinit
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00000675  __TI_zero_init_nomemset       
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+000005c9  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+000006f9  _system_pre_init              
+000006fd  abort                         
+ffffffff  binit                         
+00000000  g_pfnVectors                  
+000003d9  main                          
+20000200  muestras                      
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  GPIOPadConfigSet              
+000003d9  main                          
+00000489  ADCSequenceStepConfigure      
+00000503  ADCSequenceConfigure          
+00000551  __TI_auto_init_nobinit_nopinit
+00000595  SysCtlPeripheralEnable        
+000005c9  _c_int00_noargs               
+000005fd  ADCIntStatus                  
+0000062b  GPIODirModeSet                
+00000657  ADCSequenceDataGet            
+00000675  __TI_zero_init_nomemset       
+00000691  GPIOPinTypeGPIOOutput         
+000006ab  ADCProcessorTrigger           
+000006c3  GPIOPinTypeADC                
+000006d9  ADCSequenceEnable             
+000006e7  ResetISR                      
+000006f3  GPIOPinWrite                  
+000006f9  _system_pre_init              
+000006fd  C$$EXIT                       
+000006fd  abort                         
+00000708  __TI_Handler_Table_Base       
+0000070c  __TI_CINIT_Base               
+0000070c  __TI_Handler_Table_Limit      
+00000714  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000200  muestras                      
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[41 symbols]
