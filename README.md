@@ -1,4 +1,4 @@
-# [:desktop_computer:](https://youtu.be/dQw4w9WgXcQ) Implementacion de Sistemas Digitales - 4MM5  [:desktop_computer:](https://youtu.be/y6120QOlsfU)
+# [:desktop_computer:](https://youtu.be/dQw4w9WgXcQ) Implementacion de Sistemas Digitales - 4MM6  [:desktop_computer:](https://youtu.be/y6120QOlsfU)
 Códigos realizados en la clase de Implementación de Sistemas Digitales
 
 ## [Proyecto final](https://github.com/Irvin0121/Implementacion_de_Sistemas_Digitales/tree/main/Proyecto_final)
